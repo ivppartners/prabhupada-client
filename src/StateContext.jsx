@@ -33,7 +33,7 @@ function reducer(state, action) {
         item: action.payload,
       };
     default:
-      throw new Error();
+      throw new Error(`Nežinomas action type: ${action.type}`);
   }
 }
 

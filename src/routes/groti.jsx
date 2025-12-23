@@ -15,7 +15,7 @@ export default function Groti() {
       getAudio().then((data) =>
         dispatch({ type: "gautasSarasas", payload: data })
       );
-  }, []);
+  }, [dispatch, list.length]);
 
   if (!list.length)
     return (
@@ -23,7 +23,7 @@ export default function Groti() {
         <div className="container">Kraunama...</div>
       </Layout>
     );
-  if (!list.find((e) => e.id == id))
+  if (!list.find((e) => e.id === id))
     return (
       <Layout>
         <div className="container">Nerasta</div>

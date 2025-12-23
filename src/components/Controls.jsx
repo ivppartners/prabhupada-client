@@ -57,14 +57,24 @@ const Controls = ({
       audioRef.current.pause();
     }
     playAnimationRef.current = requestAnimationFrame(repeat);
+    
+    return () => {
+      if (playAnimationRef.current) {
+        cancelAnimationFrame(playAnimationRef.current);
+      }
+    };
   }, [isPlaying, audioRef, repeat]);
 
   const skipForward = () => {
-    audioRef.current.currentTime += 15;
+    if (audioRef.current) {
+      audioRef.current.currentTime += 15;
+    }
   };
 
   const skipBackward = () => {
-    audioRef.current.currentTime -= 15;
+    if (audioRef.current) {
+      audioRef.current.currentTime -= 15;
+    }
   };
 
   const handlePrevious = () => {

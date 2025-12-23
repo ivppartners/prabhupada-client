@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 // import components
 import DisplayTrack from "./DisplayTrack";
-import Controls from "./controls";
+import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import "./audioplayer.css";
 import images from "./images";
@@ -25,21 +25,27 @@ const AudioPlayer = ({id, tracks }) => {
   useEffect(() => {
     var index = tracks.findIndex((track) => track.id === id);
     setTrackIndex(index);
-    var track = tracks[index];
-    track.thumbnail = images[getRandomInt(images.length)];
+    var track = {
+      ...tracks[index],
+      thumbnail: images[getRandomInt(images.length)]
+    };
     setCurrentTrack(track);
-  }, [id]);
+  }, [id, tracks]);
 
   const handleNext = () => {
     if (trackIndex >= tracks.length - 1) {
       setTrackIndex(0);
-      var track = tracks[0];
-      track.thumbnail = images[getRandomInt(images.length)];
+      var track = {
+        ...tracks[0],
+        thumbnail: images[getRandomInt(images.length)]
+      };
       setCurrentTrack(track);
     } else {
       setTrackIndex(prev => prev + 1);
-      var track = tracks[trackIndex + 1];
-      track.thumbnail = images[getRandomInt(images.length)];
+      var track = {
+        ...tracks[trackIndex + 1],
+        thumbnail: images[getRandomInt(images.length)]
+      };
       setCurrentTrack(track);
     }
   };

@@ -22,7 +22,7 @@ const DisplayTrack = ({
   };
 
   const renderTracks = (i) => (
-    <li key={i.id} className={i.id == currentTrack.id ? "current" : null}>{i.pavadinimas}</li>
+    <li key={i.id} className={i.id === currentTrack.id ? "current" : null}>{i.pavadinimas}</li>
   )  
 
   React.useEffect(() => {
@@ -64,8 +64,7 @@ const DisplayTrack = ({
           <p>{currentTrack.vieta ? "Įrašo vieta: " + currentTrack.vieta : null}</p>
           <p>{currentTrack.knyga ? "Knyga: " + currentTrack.knyga : null}</p>
           <p>{currentTrack.skyrius ? "Skyrius: " + currentTrack.skyrius : null}</p>
-          <p>{currentTrack.tekstas ? "Tekstas: " + currentTrack.skyrius : null}</p>
-          <p>{currentTrack.aprasymas ? "Papildomai: " + currentTrack.aprasymas : null}</p>
+          <p>{currentTrack.tekstas ? "Tekstas: " + currentTrack.tekstas : null}</p>
           <p>{currentTrack.aprasymas ? "Papildomai: " + currentTrack.aprasymas : null}</p>
         </div>
         <div className="text"><ul>{list.map(renderTracks)}</ul></div>

@@ -9,7 +9,7 @@ const download = async (id, failoPavadinimas) => {
   const response = await axios.get(api_url + "download/" + id, {
     responseType: 'blob'
   });
-  if (response.status == 200) {
+  if (response.status === 200) {
     saveAs(response.data, failoPavadinimas);
   }
 };
