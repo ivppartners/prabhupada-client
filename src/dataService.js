@@ -15,7 +15,7 @@ const download = async (id, failoPavadinimas) => {
 };
 
 const getAudio = async () => {
-  const response = await axios.get(api_url);
+  const response = await axios.get(api_url + "get");
   if (response.status !== 200) {
     throw new Error("Klaida iš serverio. " + response.statusText);
   }
@@ -23,7 +23,7 @@ const getAudio = async () => {
 };
 
 const getAudioItem = async (id) => {
-  const response = await axios.get(api_url + id);
+  const response = await axios.get(api_url + "get/" + id);
   if (response.status !== 200) {
     throw new Error("Klaida iš serverio. " + response.statusText);
   }
